@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/Image'
 import styles from '../styles/Navbar.module.css'
+import Link from 'next/link';
 
 const Navbar = () => {
   return (
@@ -17,20 +18,34 @@ const Navbar = () => {
       </div>
       <div className={styles.item}>
         <ul className={styles.list}>
-          <li className={styles.listItem}>Homepage</li>
-          <li className={styles.listItem}>Product</li>
-          <li className={styles.listItem}>Menu</li>
+          <Link href='/'>
+            <li className={styles.listItem}>Homepage</li>
+          </Link>
+          <Link href='/product/${id}'>
+            <li className={styles.listItem}>Product</li>
+          </Link>
+          <Link href='#PizzaList'>
+            <li className={styles.listItem}>Menu</li>
+          </Link>
           <Image src="/img/logo.png" alt="logo" width="160px" height="69px" />
-          <li className={styles.listItem}>Events</li>
-          <li className={styles.listItem}>Blog</li>
-          <li className={styles.listItem}>Contact</li>
+          <Link href='#footer'>
+            <li className={styles.listItem}>Events</li>
+          </Link>
+          <Link href='https://iamafoodblog.com/'>
+            <li className={styles.listItem}>Blog</li>
+          </Link>
+          <Link href='#footer'>
+            <li className={styles.listItem}>Contact</li>
+          </Link>
         </ul>
       </div>
       <div className={styles.item}>
-        <div className={styles.cart}>
-          <Image src="/img/cart.png" alt="logo" width="30px" height="30px" />
-          <div className={styles.counter}>2</div>
-        </div>
+        <Link href='/cart'>
+          <div className={styles.cart}>
+            <Image src="/img/cart.png" alt="logo" width="30px" height="30px" />
+            <div className={styles.counter}>2</div>
+          </div>
+        </Link>
       </div>
     </div>
   )
